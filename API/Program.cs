@@ -1,4 +1,6 @@
 using Infrastructure;
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +19,18 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
+// Apply migrations and seed data on startup
+// Program.cs
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    
+    if (context.Database.GetPendingMigrations().Any() || !context.Users.Any())
+    {
+        await DbInitializer.SeedAsync(context);
+        Console.WriteLine("✅ Seed data completed!");
+    }
+}
 
 app.Run();
 
