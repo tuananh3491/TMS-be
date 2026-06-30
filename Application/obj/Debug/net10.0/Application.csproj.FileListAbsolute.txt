@@ -13,3 +13,4 @@
 /Users/ntasya/project/TMS/backend/Application/obj/Debug/net10.0/refint/Application.dll
 /Users/ntasya/project/TMS/backend/Application/obj/Debug/net10.0/Application.pdb
 /Users/ntasya/project/TMS/backend/Application/obj/Debug/net10.0/ref/Application.dll
+/Users/ntasya/project/TMS/backend/Application/obj/Debug/net10.0/Application.sourcelink.json
